@@ -6,8 +6,8 @@ import (
 	"github.com/DavidHuie/gomigrate"
 )
 
-func ApplyMigration(db *sql.DB) error {
-	migrator, err := gomigrate.NewMigrator(db, gomigrate.Postgres{}, "./build/migrations")
+func ApplyMigration(db *sql.DB, migrationDir string) error {
+	migrator, err := gomigrate.NewMigrator(db, gomigrate.Postgres{}, migrationDir)
 	if err != nil {
 		return err
 	}
